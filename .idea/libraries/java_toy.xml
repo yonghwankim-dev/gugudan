@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="java_toy">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/java_toy_jar/java_toy.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
