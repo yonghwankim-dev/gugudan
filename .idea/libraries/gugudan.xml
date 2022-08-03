@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="gugudan">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/java_toy_jar/java_toy.jar!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>
