@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/java_toy.iml" filepath="$PROJECT_DIR$/java_toy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gugudan.iml" filepath="$PROJECT_DIR$/gugudan.iml" />
     </modules>
   </component>
 </project>

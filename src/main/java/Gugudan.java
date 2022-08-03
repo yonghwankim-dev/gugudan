@@ -1,4 +1,4 @@
-package toy01_gugudan.main.java;
+package main.java;
 
 public class Gugudan {
     private final int dan;

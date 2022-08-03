@@ -1,10 +1,10 @@
-package toy01_gugudan.test.java;
+package test;
 
 
+import main.java.Gugudan;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
-import toy01_gugudan.main.java.Gugudan;
 
 public class GugudanTest {
 
