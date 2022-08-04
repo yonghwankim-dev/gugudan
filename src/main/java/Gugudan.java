@@ -5,34 +5,39 @@ import java.util.List;
 
 public class Gugudan {
     private final int dan;
-    private final int end;
+    private final Range range;
+
     public Gugudan(int dan) {
-        this(dan, 9);
+        this(dan, 1, 9);
     }
 
-    public Gugudan(int dan, int end) {
+    public Gugudan(int dan, int start, int end) {
         this.dan = dan;
-        this.end = end;
+        this.range = new Range(new Positive(start), new Positive(end));
     }
 
     public int[] calc(){
-        List<Integer> result = new ArrayList<>();
-        for(int i = 1; i <= end; i++){
-            result.add(dan * (i));
+        List<Positive> result = new ArrayList<>();
+        int start = range.getStartNumber();
+        int end = range.getEndNumber();
+        for(int i = start; i <= end; i++){
+            result.add(new Positive(dan * (i)));
         }
         return toIntArrays(result);
     }
 
-    public int[] toIntArrays(List<Integer> list){
+    public int[] toIntArrays(List<Positive> list){
         int[] result = new int[list.size()];
         for(int i = 0; i < list.size(); i++){
-            result[i] = list.get(i);
+            result[i] = list.get(i).getNumber();
         }
         return result;
     }
 
     public void print(){
-        for(int i = 1; i <= end; i++){
+        int start = range.getStartNumber();
+        int end = range.getEndNumber();
+        for(int i = start; i <= end; i++){
             System.out.printf("%d * %d = %d\n", dan, i, dan * i);
         }
     }

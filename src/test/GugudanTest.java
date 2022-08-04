@@ -46,22 +46,9 @@ public class GugudanTest {
     }
 
     @Test
-    public void test3(){
-        //given
-        gugudan = new Gugudan(-2);
-        int[] expected = new int[] {-2, -4, -6, -8, -10, -12, -14, -16, -18};
-
-        //when
-        values = gugudan.calc();
-
-        //then
-        assertThat(values).isEqualTo(expected);
-    }
-
-    @Test
     public void test4(){
         //given
-        gugudan = new Gugudan(2, 8);
+        gugudan = new Gugudan(2, 1, 8);
         int[] expected = {2, 4, 6, 8, 10, 12, 14, 16};
 
         //when
