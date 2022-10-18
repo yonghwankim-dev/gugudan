@@ -30,8 +30,11 @@ public class GugudanMenuTest {
     @Test
     public void testShow(){
         GugudanMenu.show();
-        String expected = "1. 구구단 출력\n2. 종료\n";
-        assertThat(outputMessage.toString()).isEqualTo(expected);
+        String expected = "1. 구구단 출력" + System.lineSeparator();
+        expected += "2. 종료" + System.lineSeparator();
+        String actual = outputMessage.toString();
+
+        assertThat(actual).isEqualTo(expected);
     }
 
 }
