@@ -1,44 +1,61 @@
 package main.java;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Gugudan {
-    private final int dan;
-    private final Range range;
+    private int dan;
+    private int start;
+    private int end;
 
-    public Gugudan(int dan) {
-        this(dan, 1, 9);
+    public Gugudan(int dan){
+        this(dan, 1);
     }
 
-    public Gugudan(int dan, int start, int end) {
+    public Gugudan(int dan, int start){
+        this(dan, start, 9);
+    }
+
+    public Gugudan(int dan, int start, int end){
         this.dan = dan;
-        this.range = new Range(new Positive(start), new Positive(end));
+        if(isNotPositiveNumber(start)){
+            throw new IllegalStateException("단수의 시작은 1이상이어야 합니다.");
+        }
+        if(isNotPositiveNumber(end)){
+            throw new IllegalStateException("단수의 종료는 1이상이어야 합니다.");
+        }
+        if(start > end){
+            throw new IllegalStateException("단수의 시작은 단수의 종료보다 작아야 합니다.");
+        }
+        this.start = start;
+        this.end = end;
     }
 
-    public int[] calc(){
-        List<Positive> result = new ArrayList<>();
-        int start = range.getStartNumber();
-        int end = range.getEndNumber();
+    private boolean isNotPositiveNumber(int number){
+        return number <= 0;
+    }
+
+    public int[] createArrayDan() {
+        int size = getArraySize();
+        int[] result = new int[size];
+
         for(int i = start; i <= end; i++){
-            result.add(new Positive(dan * (i)));
+           result[i - 1] = time(i);
         }
-        return toIntArrays(result);
-    }
 
-    public int[] toIntArrays(List<Positive> list){
-        int[] result = new int[list.size()];
-        for(int i = 0; i < list.size(); i++){
-            result[i] = list.get(i).getNumber();
-        }
         return result;
     }
 
+    private int getArraySize(){
+        return end - start + 1;
+    }
+
+    public int time(int multiplier){
+        return dan * multiplier;
+    }
+
     public void print(){
-        int start = range.getStartNumber();
-        int end = range.getEndNumber();
+        int[] result = createArrayDan();
+
         for(int i = start; i <= end; i++){
-            System.out.printf("%d * %d = %d\n", dan, i, dan * i);
+            System.out.printf("%d * %d = %d\n", dan, i, result[i-1]);
         }
     }
- }
+}
