@@ -2,10 +2,10 @@ package test;
 
 
 import main.java.Gugudan;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 public class GugudanTest {
     
@@ -31,6 +31,16 @@ public class GugudanTest {
     public void testCreateArrayDan(){
         Gugudan gugudan = new Gugudan(2);
         assertThat(gugudan.createArrayDan()).isEqualTo(new int[]{2,4,6,8,10,12,14,16,18});
+    }
+
+    @Test
+    public void testCreateArrayDan_DanIsZero(){
+        //given
+        Gugudan gugudan = new Gugudan(0);
+        //when
+        int[] result = gugudan.createArrayDan();
+        //then
+        assertThat(result).isEqualTo(new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0});
     }
 
     @Test(expected = IllegalStateException.class)
